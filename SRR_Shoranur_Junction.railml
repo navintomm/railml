@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<railML xmlns="https://www.railml.org/schemas/2.2" version="2.2">
+  <metadata>
+    <creator>Railway Network Analysis System - SRR Station Model</creator>
+    <created>2026-01-04</created>
+    <description>Shoranur Junction (SRR) - Triangular junction with 7 platforms serving Mangalore, Nilambur, Palakkad, and Ernakulam lines</description>
+  </metadata>
+  
+  <infrastructure>
+    <operationControlPoints>
+      <operationControlPoint id="SRR" name="Shoranur Junction">
+        <designator register="IR" entry="SRR"/>
+        <designator register="local" entry="Shoranur Junction"/>
+        <geoCoord coord="10.7597,76.2733"/>
+      </operationControlPoint>
+    </operationControlPoints>
+    
+    <tracks>
+      <!-- ENTRY LINES (4 Directions) -->
+      
+      <!-- From Mangalore (Northwest) -->
+      <track id="ENTRY_MANGALORE" type="mainTrack">
+        <trackTopology>
+          <trackBegin id="tb_mng" pos="0"/>
+          <trackEnd id="te_mng" pos="2000"/>
+        </trackTopology>
+        <length value="2000" type="physical"/>
+        <designator register="local" entry="Mangalore Line Entry"/>
+      </track>
+      
+      <!-- From Nilambur (Northeast) -->
+      <track id="ENTRY_NILAMBUR" type="mainTrack">
+        <trackTopology>
+          <trackBegin id="tb_nil" pos="0"/>
+          <trackEnd id="te_nil" pos="1800"/>
+        </trackTopology>
+        <length value="1800" type="physical"/>
+        <designator register="local" entry="Nilambur Line Entry"/>
+      </track>
+      
+      <!-- From Palakkad (East) -->
+      <track id="ENTRY_PALAKKAD" type="mainTrack">
+        <trackTopology>
+          <trackBegin id="tb_pkd" pos="0"/>
+          <trackEnd id="te_pkd" pos="2200"/>
+        </trackTopology>
+        <length value="2200" type="physical"/>
+        <designator register="local" entry="Palakkad Line Entry"/>
+      </track>
+      
+      <!-- From Ernakulam (South) -->
+      <track id="ENTRY_ERNAKULAM" type="mainTrack">
+        <trackTopology>
+          <trackBegin id="tb_ern" pos="0"/>
+          <trackEnd id="te_ern" pos="2500"/>
+        </trackTopology>
+        <length value="2500" type="physical"/>
+        <designator register="local" entry="Ernakulam Line Entry"/>
+      </track>
+      
+      <!-- PLATFORM TRACKS (7 Platforms) -->
+      
+      <track id="PLATFORM_1_UP" type="stationTrack">
+        <length value="550" type="physical"/>
+        <designator register="local" entry="Platform 1 Up"/>
+      </track>
+      
+      <track id="PLATFORM_1_DOWN" type="stationTrack">
+        <length value="550" type="physical"/>
+        <designator register="local" entry="Platform 1 Down"/>
+      </track>
+      
+      <track id="PLATFORM_2_UP" type="stationTrack">
+        <length value="520" type="physical"/>
+        <designator register="local" entry="Platform 2 Up"/>
+      </track>
+      
+      <track id="PLATFORM_2_DOWN" type="stationTrack">
+        <length value="520" type="physical"/>
+        <designator register="local" entry="Platform 2 Down"/>
+      </track>
+      
+      <track id="PLATFORM_3_MAIN" type="stationTrack">
+        <length value="600" type="physical"/>
+        <designator register="local" entry="Platform 3 Main"/>
+      </track>
+      
+      <track id="PLATFORM_4_UP" type="stationTrack">
+        <length value="480" type="physical"/>
+        <designator register="local" entry="Platform 4 Up"/>
+      </track>
+      
+      <track id="PLATFORM_4_DOWN" type="stationTrack">
+        <length value="480" type="physical"/>
+        <designator register="local" entry="Platform 4 Down"/>
+      </track>
+      
+      <track id="PLATFORM_5_LOOP" type="stationTrack">
+        <length value="450" type="physical"/>
+        <designator register="local" entry="Platform 5 Loop"/>
+      </track>
+      
+      <track id="PLATFORM_6_UP" type="stationTrack">
+        <length value="500" type="physical"/>
+        <designator register="local" entry="Platform 6 Up"/>
+      </track>
+      
+      <track id="PLATFORM_6_DOWN" type="stationTrack">
+        <length value="500" type="physical"/>
+        <designator register="local" entry="Platform 6 Down"/>
+      </track>
+      
+      <track id="PLATFORM_7_SIDING" type="stationTrack">
+        <length value="420" type="physical"/>
+        <designator register="local" entry="Platform 7 Siding"/>
+      </track>
+      
+      <!-- ADDITIONAL YARD TRACKS (14-20 total tracks) -->
+      
+      <track id="GOODS_SIDING_1" type="sidingTrack">
+        <length value="380" type="physical"/>
+        <designator register="local" entry="Goods Siding 1"/>
+      </track>
+      
+      <track id="GOODS_SIDING_2" type="sidingTrack">
+        <length value="380" type="physical"/>
+        <designator register="local" entry="Goods Siding 2"/>
+      </track>
+      
+      <track id="LOCO_SIDING" type="sidingTrack">
+        <length value="300" type="physical"/>
+        <designator register="local" entry="Loco Siding"/>
+      </track>
+      
+      <track id="WASHING_LINE" type="sidingTrack">
+        <length value="250" type="physical"/>
+        <designator register="local" entry="Washing Line"/>
+      </track>
+      
+      <!-- EXIT LINES (4 Directions) -->
+      
+      <track id="EXIT_MANGALORE" type="mainTrack">
+        <length value="1800" type="physical"/>
+        <designator register="local" entry="Mangalore Line Exit"/>
+      </track>
+      
+      <track id="EXIT_NILAMBUR" type="mainTrack">
+        <length value="1600" type="physical"/>
+        <designator register="local" entry="Nilambur Line Exit"/>
+      </track>
+      
+      <track id="EXIT_PALAKKAD" type="mainTrack">
+        <length value="2000" type="physical"/>
+        <designator register="local" entry="Palakkad Line Exit"/>
+      </track>
+      
+      <track id="EXIT_ERNAKULAM" type="mainTrack">
+        <length value="2200" type="physical"/>
+        <designator register="local" entry="Ernakulam Line Exit"/>
+      </track>
+    </tracks>
+    
+    <switches>
+      <!-- NORTH END SWITCHES (Entry Distribution) -->
+      
+      <switch id="SW_NORTH_MAIN" type="ordinarySwitch">
+        <designator register="local" entry="North Main Distributor"/>
+      </switch>
+      
+      <switch id="SW_MANGALORE_DIST" type="ordinarySwitch">
+        <designator register="local" entry="Mangalore Distribution"/>
+      </switch>
+      
+      <switch id="SW_NILAMBUR_DIST" type="ordinarySwitch">
+        <designator register="local" entry="Nilambur Distribution"/>
+      </switch>
+      
+      <switch id="SW_PALAKKAD_DIST" type="ordinarySwitch">
+        <designator register="local" entry="Palakkad Distribution"/>
+      </switch>
+      
+      <!-- PLATFORM AREA SWITCHES -->
+      
+      <switch id="SW_PLATFORM_1_2" type="ordinarySwitch">
+        <designator register="local" entry="Platform 1-2 Junction"/>
+      </switch>
+      
+      <switch id="SW_PLATFORM_3_4" type="ordinarySwitch">
+        <designator register="local" entry="Platform 3-4 Junction"/>
+      </switch>
+      
+      <switch id="SW_PLATFORM_5_6" type="ordinarySwitch">
+        <designator register="local" entry="Platform 5-6 Junction"/>
+      </switch>
+      
+      <!-- SOUTH END SWITCHES (Exit Convergence - CRITICAL CDL ZONES!) -->
+      
+      <switch id="SW_SOUTH_MANGALORE_SPLIT" type="ordinarySwitch">
+        <designator register="local" entry="South Mangalore-Ernakulam Split"/>
+        <designator register="critical" entry="PRIMARY CDL ZONE"/>
+      </switch>
+      
+      <switch id="SW_SOUTH_ERNAKULAM_MERGE" type="ordinarySwitch">
+        <designator register="local" entry="South Ernakulam Merge"/>
+        <designator register="critical" entry="CRITICAL CDL ZONE"/>
+      </switch>
+      
+      <switch id="SW_SOUTH_PALAKKAD_MERGE" type="ordinarySwitch">
+        <designator register="local" entry="South Palakkad Merge"/>
+        <designator register="critical" entry="CDL ZONE"/>
+      </switch>
+      
+      <!-- YARD SWITCHES -->
+      
+      <switch id="SW_GOODS_YARD" type="ordinarySwitch">
+        <designator register="local" entry="Goods Yard Access"/>
+      </switch>
+      
+      <switch id="SW_LOCO_YARD" type="ordinarySwitch">
+        <designator register="local" entry="Loco Yard Access"/>
+      </switch>
+    </switches>
+    
+    <platforms>
+      <platform id="PLATFORM_1">
+        <designator register="local" entry="Platform 1"/>
+        <length value="550" type="physical"/>
+        <height value="0.76"/>
+      </platform>
+      
+      <platform id="PLATFORM_2">
+        <designator register="local" entry="Platform 2"/>
+        <length value="520" type="physical"/>
+        <height value="0.76"/>
+      </platform>
+      
+      <platform id="PLATFORM_3">
+        <designator register="local" entry="Platform 3 (Main)"/>
+        <length value="600" type="physical"/>
+        <height value="0.76"/>
+      </platform>
+      
+      <platform id="PLATFORM_4">
+        <designator register="local" entry="Platform 4"/>
+        <length value="480" type="physical"/>
+        <height value="0.76"/>
+      </platform>
+      
+      <platform id="PLATFORM_5">
+        <designator register="local" entry="Platform 5 (Loop)"/>
+        <length value="450" type="physical"/>
+        <height value="0.76"/>
+      </platform>
+      
+      <platform id="PLATFORM_6">
+        <designator register="local" entry="Platform 6"/>
+        <length value="500" type="physical"/>
+        <height value="0.76"/>
+      </platform>
+      
+      <platform id="PLATFORM_7">
+        <designator register="local" entry="Platform 7 (Siding)"/>
+        <length value="420" type="physical"/>
+        <height value="0.76"/>
+      </platform>
+    </platforms>
+    
+    <connections>
+      <!-- ENTRY TO PLATFORM CONNECTIONS -->
+      
+      <!-- Mangalore Line Entry -->
+      <connection id="conn_mng_1" ref="ENTRY_MANGALORE" to="SW_MANGALORE_DIST">
+        <length value="400"/>
+      </connection>
+      <connection id="conn_mng_2" ref="SW_MANGALORE_DIST" to="PLATFORM_1_UP">
+        <length value="350"/>
+      </connection>
+      <connection id="conn_mng_3" ref="SW_MANGALORE_DIST" to="PLATFORM_2_UP">
+        <length value="380"/>
+      </connection>
+      
+      <!-- Nilambur Line Entry -->
+      <connection id="conn_nil_1" ref="ENTRY_NILAMBUR" to="SW_NILAMBUR_DIST">
+        <length value="450"/>
+      </connection>
+      <connection id="conn_nil_2" ref="SW_NILAMBUR_DIST" to="PLATFORM_3_MAIN">
+        <length value="320"/>
+      </connection>
+      <connection id="conn_nil_3" ref="SW_NILAMBUR_DIST" to="PLATFORM_4_UP">
+        <length value="340"/>
+      </connection>
+      
+      <!-- Palakkad Line Entry -->
+      <connection id="conn_pkd_1" ref="ENTRY_PALAKKAD" to="SW_PALAKKAD_DIST">
+        <length value="500"/>
+      </connection>
+      <connection id="conn_pkd_2" ref="SW_PALAKKAD_DIST" to="PLATFORM_5_LOOP">
+        <length value="300"/>
+      </connection>
+      <connection id="conn_pkd_3" ref="SW_PALAKKAD_DIST" to="PLATFORM_6_UP">
+        <length value="330"/>
+      </connection>
+      
+      <!-- Ernakulam Line Entry -->
+      <connection id="conn_ern_1" ref="ENTRY_ERNAKULAM" to="SW_PLATFORM_1_2">
+        <length value="600"/>
+      </connection>
+      <connection id="conn_ern_2" ref="SW_PLATFORM_1_2" to="PLATFORM_1_DOWN">
+        <length value="280"/>
+      </connection>
+      <connection id="conn_ern_3" ref="SW_PLATFORM_1_2" to="PLATFORM_7_SIDING">
+        <length value="320"/>
+      </connection>
+      
+      <!-- PLATFORM TO EXIT CONNECTIONS (Creating CDL Zones!) -->
+      
+      <!-- Platform 1 Exits -->
+      <connection id="exit_p1_1" ref="PLATFORM_1_UP" to="SW_SOUTH_MANGALORE_SPLIT">
+        <length value="400"/>
+      </connection>
+      <connection id="exit_p1_2" ref="PLATFORM_1_DOWN" to="SW_SOUTH_ERNAKULAM_MERGE">
+        <length value="420"/>
+      </connection>
+      
+      <!-- Platform 2 Exits -->
+      <connection id="exit_p2_1" ref="PLATFORM_2_UP" to="SW_SOUTH_MANGALORE_SPLIT">
+        <length value="380"/>
+      </connection>
+      <connection id="exit_p2_2" ref="PLATFORM_2_DOWN" to="SW_SOUTH_ERNAKULAM_MERGE">
+        <length value="400"/>
+      </connection>
+      
+      <!-- Platform 3 Exits -->
+      <connection id="exit_p3" ref="PLATFORM_3_MAIN" to="SW_SOUTH_PALAKKAD_MERGE">
+        <length value="450"/>
+      </connection>
+      
+      <!-- Platform 4 Exits -->
+      <connection id="exit_p4_1" ref="PLATFORM_4_UP" to="SW_SOUTH_PALAKKAD_MERGE">
+        <length value="430"/>
+      </connection>
+      <connection id="exit_p4_2" ref="PLATFORM_4_DOWN" to="SW_SOUTH_ERNAKULAM_MERGE">
+        <length value="440"/>
+      </connection>
+      
+      <!-- Platform 5 Exits -->
+      <connection id="exit_p5" ref="PLATFORM_5_LOOP" to="SW_SOUTH_PALAKKAD_MERGE">
+        <length value="410"/>
+      </connection>
+      
+      <!-- Platform 6 Exits -->
+      <connection id="exit_p6_1" ref="PLATFORM_6_UP" to="SW_SOUTH_MANGALORE_SPLIT">
+        <length value="460"/>
+      </connection>
+      <connection id="exit_p6_2" ref="PLATFORM_6_DOWN" to="SW_SOUTH_ERNAKULAM_MERGE">
+        <length value="480"/>
+      </connection>
+      
+      <!-- Platform 7 Exit -->
+      <connection id="exit_p7" ref="PLATFORM_7_SIDING" to="SW_SOUTH_ERNAKULAM_MERGE">
+        <length value="500"/>
+      </connection>
+      
+      <!-- CRITICAL CDL ZONE CONNECTIONS (South End) -->
+      
+      <!-- Mangalore-Ernakulam Split (PRIMARY CDL ZONE) -->
+      <connection id="cdl_1" ref="SW_SOUTH_MANGALORE_SPLIT" to="EXIT_MANGALORE">
+        <length value="550"/>
+      </connection>
+      <connection id="cdl_2" ref="SW_SOUTH_MANGALORE_SPLIT" to="SW_SOUTH_ERNAKULAM_MERGE">
+        <length value="300"/>
+      </connection>
+      
+      <!-- Ernakulam Merge (CRITICAL CDL ZONE) -->
+      <connection id="cdl_3" ref="SW_SOUTH_ERNAKULAM_MERGE" to="EXIT_ERNAKULAM">
+        <length value="600"/>
+      </connection>
+      
+      <!-- Palakkad Merge (CDL ZONE) -->
+      <connection id="cdl_4" ref="SW_SOUTH_PALAKKAD_MERGE" to="EXIT_PALAKKAD">
+        <length value="580"/>
+      </connection>
+      
+      <!-- Goods Yard Connections -->
+      <connection id="yard_1" ref="SW_PALAKKAD_DIST" to="SW_GOODS_YARD">
+        <length value="200"/>
+      </connection>
+      <connection id="yard_2" ref="SW_GOODS_YARD" to="GOODS_SIDING_1">
+        <length value="150"/>
+      </connection>
+      <connection id="yard_3" ref="SW_GOODS_YARD" to="GOODS_SIDING_2">
+        <length value="160"/>
+      </connection>
+      
+      <!-- Loco Yard Connections -->
+      <connection id="loco_1" ref="SW_NILAMBUR_DIST" to="SW_LOCO_YARD">
+        <length value="180"/>
+      </connection>
+      <connection id="loco_2" ref="SW_LOCO_YARD" to="LOCO_SIDING">
+        <length value="120"/>
+      </connection>
+      <connection id="loco_3" ref="SW_LOCO_YARD" to="WASHING_LINE">
+        <length value="130"/>
+      </connection>
+    </connections>
+  </infrastructure>
+</railML>

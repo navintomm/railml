@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<railML xmlns="https://www.railml.org/schemas/2.2" version="2.2">
+  <metadata>
+    <creator>Railway Network Analysis System</creator>
+    <created>2026-01-04</created>
+  </metadata>
+  
+  <infrastructure>
+    <operationControlPoints>
+      <operationControlPoint id="OCP_CENTRAL" name="Central Station">
+        <designator register="local" entry="Central Station"/>
+      </operationControlPoint>
+    </operationControlPoints>
+    
+    <tracks>
+      <!-- Entry Tracks -->
+      <track id="ENTRY_MAIN" type="mainTrack">
+        <trackTopology>
+          <trackBegin id="tb_entry_main" pos="0"/>
+          <trackEnd id="te_entry_main" pos="1000"/>
+        </trackTopology>
+        <length value="1000" type="physical"/>
+      </track>
+      
+      <track id="ENTRY_SECONDARY" type="mainTrack">
+        <trackTopology>
+          <trackBegin id="tb_entry_sec" pos="0"/>
+          <trackEnd id="te_entry_sec" pos="1000"/>
+        </trackTopology>
+        <length value="1000" type="physical"/>
+      </track>
+      
+      <!-- Platform Tracks -->
+      <track id="PLATFORM_1_TRACK" type="stationTrack">
+        <trackTopology>
+          <trackBegin id="tb_p1" pos="0"/>
+          <trackEnd id="te_p1" pos="400"/>
+        </trackTopology>
+        <length value="400" type="physical"/>
+      </track>
+      
+      <track id="PLATFORM_2_TRACK" type="stationTrack">
+        <trackTopology>
+          <trackBegin id="tb_p2" pos="0"/>
+          <trackEnd id="te_p2" pos="400"/>
+        </trackTopology>
+        <length value="400" type="physical"/>
+      </track>
+      
+      <!-- Merge Track -->
+      <track id="MERGE_TRACK" type="mainTrack">
+        <trackTopology>
+          <trackBegin id="tb_merge" pos="0"/>
+          <trackEnd id="te_merge" pos="600"/>
+        </trackTopology>
+        <length value="600" type="physical"/>
+      </track>
+      
+      <!-- Exit Track -->
+      <track id="EXIT_MAIN" type="mainTrack">
+        <trackTopology>
+          <trackBegin id="tb_exit" pos="0"/>
+          <trackEnd id="te_exit" pos="1200"/>
+        </trackTopology>
+        <length value="1200" type="physical"/>
+      </track>
+    </tracks>
+    
+    <switches>
+      <switch id="SW_ENTRY_SPLIT" type="ordinarySwitch">
+        <designator register="local" entry="Entry Switch"/>
+      </switch>
+      
+      <switch id="SW_PLATFORM_1" type="ordinarySwitch">
+        <designator register="local" entry="Platform 1 Switch"/>
+      </switch>
+      
+      <switch id="SW_PLATFORM_2" type="ordinarySwitch">
+        <designator register="local" entry="Platform 2 Switch"/>
+      </switch>
+      
+      <switch id="SW_EXIT_MERGE" type="ordinarySwitch">
+        <designator register="local" entry="Exit Merge Switch"/>
+      </switch>
+    </switches>
+    
+    <platforms>
+      <platform id="PLATFORM_1">
+        <designator register="local" entry="Platform 1"/>
+        <length value="400" type="physical"/>
+        <height value="0.76"/>
+      </platform>
+      
+      <platform id="PLATFORM_2">
+        <designator register="local" entry="Platform 2"/>
+        <length value="400" type="physical"/>
+        <height value="0.76"/>
+      </platform>
+    </platforms>
+    
+    <connections>
+      <!-- Entry connections -->
+      <connection id="conn_1" ref="ENTRY_MAIN" to="SW_ENTRY_SPLIT">
+        <length value="300"/>
+      </connection>
+      
+      <connection id="conn_2" ref="ENTRY_SECONDARY" to="SW_ENTRY_SPLIT">
+        <length value="350"/>
+      </connection>
+      
+      <!-- Platform connections -->
+      <connection id="conn_3" ref="SW_ENTRY_SPLIT" to="PLATFORM_1_TRACK">
+        <length value="200"/>
+      </connection>
+      
+      <connection id="conn_4" ref="SW_ENTRY_SPLIT" to="PLATFORM_2_TRACK">
+        <length value="250"/>
+      </connection>
+      
+      <!-- Exit connections - Creates CDL Zone! -->
+      <connection id="conn_5" ref="PLATFORM_1_TRACK" to="SW_EXIT_MERGE">
+        <length value="200"/>
+      </connection>
+      
+      <connection id="conn_6" ref="PLATFORM_2_TRACK" to="SW_EXIT_MERGE">
+        <length value="200"/>
+      </connection>
+      
+      <!-- Final exit -->
+      <connection id="conn_7" ref="SW_EXIT_MERGE" to="EXIT_MAIN">
+        <length value="400"/>
+      </connection>
+    </connections>
+  </infrastructure>
+</railML>

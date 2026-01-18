@@ -1,0 +1,40 @@
+
+======================================================================
+RAILWAY NETWORK SUMMARY: Grand Junction
+======================================================================
+
+NETWORK STATISTICS:
+  • Total Nodes: 15
+  • Total Edges: 10
+  • Track Nodes: 5
+  • Switches: 0
+  • Signals: 4
+  • CDL Zones: 2
+  • Platforms: 0
+  • Total Track Length: 3750.00 meters
+
+CDL ZONES (Conflict/Merge Points):
+  • SWITCH_AB
+    - Incoming tracks: TRACK_A2, TRACK_B2
+  • SWITCH_MAIN
+    - Incoming tracks: TRACK_C1, SWITCH_AB
+
+SIGNALS:
+  • SIG_SWITCH_AB_to_SWITCH_MAIN
+    - Protects CDL Zone: SWITCH_MAIN
+    - Approach from: SWITCH_AB
+    - Distance to CDL: 500m
+  • SIG_TRACK_A2_to_SWITCH_AB
+    - Protects CDL Zone: SWITCH_AB
+    - Approach from: TRACK_A2
+    - Distance to CDL: 500m
+  • SIG_TRACK_B2_to_SWITCH_AB
+    - Protects CDL Zone: SWITCH_AB
+    - Approach from: TRACK_B2
+    - Distance to CDL: 500m
+  • SIG_TRACK_C1_to_SWITCH_MAIN
+    - Protects CDL Zone: SWITCH_MAIN
+    - Approach from: TRACK_C1
+    - Distance to CDL: 500m
+
+======================================================================
