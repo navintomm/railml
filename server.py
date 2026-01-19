@@ -1,5 +1,6 @@
 import os
 import json
+import base64
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 import matplotlib
@@ -11,8 +12,8 @@ from railml_importer import RailMLImporter, import_railml_and_analyze
 app = Flask(__name__, static_folder='.')
 CORS(app)
 
-# Ensure output directory for visualizations
-OUTPUT_DIR = 'static/output'
+# Vercel: Use /tmp for writable directory
+OUTPUT_DIR = '/tmp'
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 @app.route('/')
@@ -22,6 +23,12 @@ def index():
 @app.route('/<path:path>')
 def static_files(path):
     return send_from_directory('.', path)
+
+def encode_image_to_base64(image_path):
+    """Read image file and convert to base64 data URI"""
+    with open(image_path, "rb") as image_file:
+        encoded_string = base64.b64encode(image_file.read()).decode('utf-8')
+    return f"data:image/png;base64,{encoded_string}"
 
 @app.route('/api/generate', methods=['POST'])
 def generate_network():
@@ -56,10 +63,13 @@ def generate_network():
         cdl_zones = network.identify_cdl_zones()
         signals = network.place_signals_before_cdl_zones(signal_distance=signal_distance)
 
-        # Generate visualization
+        # Generate visualization to /tmp
         img_name = f"manual_station_{hash(station_name) % 10000}.png"
         img_path = os.path.join(OUTPUT_DIR, img_name)
         network.visualize(save_path=img_path)
+
+        # Convert to Base64
+        web_img_path = encode_image_to_base64(img_path)
 
         # Prepare response
         stats = network.get_network_statistics()
@@ -71,9 +81,6 @@ def generate_network():
             sig_node = network.nodes[sig_id]
             meta = sig_node.metadata
             signal_details.append(f"{sig_id}: Protects {meta['protects_cdl_zone']} from {meta['approach_from']}")
-
-        # Ensure web-compatible path (forward slashes)
-        web_img_path = img_path.replace('\\', '/')
 
         return jsonify({
             'success': True,
@@ -96,7 +103,7 @@ def upload_railml():
         file = request.files['file']
         signal_distance = float(request.form.get('signal_distance', 500))
         
-        # Save temporary file
+        # Save temporary file to /tmp
         temp_path = os.path.join(OUTPUT_DIR, file.filename)
         file.save(temp_path)
         
@@ -108,10 +115,13 @@ def upload_railml():
         cdl_zones = network.identify_cdl_zones()
         signals = network.place_signals_before_cdl_zones(signal_distance=signal_distance)
         
-        # Generate visualization
+        # Generate visualization to /tmp
         img_name = f"imported_{file.filename}.png"
         img_path = os.path.join(OUTPUT_DIR, img_name)
         network.visualize(save_path=img_path)
+        
+        # Convert to Base64
+        web_img_path = encode_image_to_base64(img_path)
         
         # Prepare response
         stats = network.get_network_statistics()
@@ -122,9 +132,6 @@ def upload_railml():
             meta = sig_node.metadata
             signal_details.append(f"{sig_id}: Protects {meta['protects_cdl_zone']} from {meta['approach_from']}")
             
-        # Ensure web-compatible path (forward slashes)
-        web_img_path = img_path.replace('\\', '/')
-
         return jsonify({
             'success': True,
             'stats': stats,
