@@ -19,7 +19,7 @@ def test_simple_merge():
     network.add_node(RailwayNode("A", NodeType.TRACK, (0, 100)))
     network.add_node(RailwayNode("B", NodeType.TRACK, (0, 0)))
     network.add_node(RailwayNode("M", NodeType.TRACK, (500, 50)))
-    network.add_node(RailwayNode("EXIT", NodeType.EXIT_POINT, (1000, 50)))
+    network.add_node(RailwayNode("EXIT", NodeType.TRACK, (1000, 50)))
     
     network.add_edge(RailwayEdge("A", "M", 550))
     network.add_edge(RailwayEdge("B", "M", 550))
@@ -53,10 +53,10 @@ def test_no_merge():
     network = RailwayNetwork("Test: Linear")
     
     # Create linear path: A → B → C → D
-    network.add_node(RailwayNode("A", NodeType.ENTRY_POINT, (0, 0)))
+    network.add_node(RailwayNode("A", NodeType.TRACK, (0, 0)))
     network.add_node(RailwayNode("B", NodeType.TRACK, (300, 0)))
     network.add_node(RailwayNode("C", NodeType.TRACK, (600, 0)))
-    network.add_node(RailwayNode("D", NodeType.EXIT_POINT, (900, 0)))
+    network.add_node(RailwayNode("D", NodeType.TRACK, (900, 0)))
     
     network.add_edge(RailwayEdge("A", "B", 300))
     network.add_edge(RailwayEdge("B", "C", 300))
@@ -91,12 +91,12 @@ def test_multiple_cdl_zones():
     # Create network with 2 CDL zones
     # Entry1 → M1 ← Entry2
     # M1 → M2 ← Entry3
-    network.add_node(RailwayNode("ENTRY1", NodeType.ENTRY_POINT, (0, 200)))
-    network.add_node(RailwayNode("ENTRY2", NodeType.ENTRY_POINT, (0, 100)))
-    network.add_node(RailwayNode("ENTRY3", NodeType.ENTRY_POINT, (0, 0)))
+    network.add_node(RailwayNode("ENTRY1", NodeType.TRACK, (0, 200)))
+    network.add_node(RailwayNode("ENTRY2", NodeType.TRACK, (0, 100)))
+    network.add_node(RailwayNode("ENTRY3", NodeType.TRACK, (0, 0)))
     network.add_node(RailwayNode("M1", NodeType.TRACK, (600, 150)))
     network.add_node(RailwayNode("M2", NodeType.TRACK, (1200, 100)))
-    network.add_node(RailwayNode("EXIT", NodeType.EXIT_POINT, (1600, 100)))
+    network.add_node(RailwayNode("EXIT", NodeType.TRACK, (1600, 100)))
     
     network.add_edge(RailwayEdge("ENTRY1", "M1", 650))
     network.add_edge(RailwayEdge("ENTRY2", "M1", 550))
@@ -137,7 +137,7 @@ def test_signal_distance():
     network = RailwayNetwork("Test: Signal Distance")
     
     # Create simple merge with exact 500m approach
-    network.add_node(RailwayNode("START", NodeType.ENTRY_POINT, (0, 0)))
+    network.add_node(RailwayNode("START", NodeType.TRACK, (0, 0)))
     network.add_node(RailwayNode("MID", NodeType.TRACK, (300, 0)))
     network.add_node(RailwayNode("CDL", NodeType.TRACK, (800, 0)))
     network.add_node(RailwayNode("OTHER", NodeType.TRACK, (0, 100)))
@@ -180,7 +180,7 @@ def test_switch_nodes():
     network.add_node(RailwayNode("T1", NodeType.TRACK, (0, 100)))
     network.add_node(RailwayNode("T2", NodeType.TRACK, (0, 0)))
     network.add_node(RailwayNode("SW", NodeType.SWITCH, (600, 50)))
-    network.add_node(RailwayNode("EXIT", NodeType.EXIT_POINT, (1000, 50)))
+    network.add_node(RailwayNode("EXIT", NodeType.TRACK, (1000, 50)))
     
     network.add_edge(RailwayEdge("T1", "SW", 650))
     network.add_edge(RailwayEdge("T2", "SW", 650))

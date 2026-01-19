@@ -17,8 +17,6 @@ class NodeType(Enum):
     SIGNAL = "signal"
     CDL_ZONE = "cdl_zone"
     PLATFORM = "platform"
-    ENTRY_POINT = "entry"
-    EXIT_POINT = "exit"
 
 
 @dataclass
@@ -309,9 +307,7 @@ class RailwayNetwork:
             NodeType.SWITCH.value: '#F5A623',
             NodeType.SIGNAL.value: '#7ED321',
             NodeType.CDL_ZONE.value: '#D0021B',
-            NodeType.PLATFORM.value: '#9013FE',
-            NodeType.ENTRY_POINT.value: '#50E3C2',
-            NodeType.EXIT_POINT.value: '#B8E986'
+            NodeType.PLATFORM.value: '#9013FE'
         }
         
         # Draw edges (tracks) with lighter color
@@ -333,8 +329,6 @@ class RailwayNetwork:
             NodeType.SIGNAL.value: 900,
             NodeType.SWITCH.value: 800,
             NodeType.PLATFORM.value: 700,
-            NodeType.ENTRY_POINT.value: 900,
-            NodeType.EXIT_POINT.value: 900,
             NodeType.TRACK.value: 600
         }
         
@@ -362,9 +356,7 @@ class RailwayNetwork:
             node for node, data in self.graph.nodes(data=True)
             if data.get('node_type') in [
                 NodeType.CDL_ZONE.value,
-                NodeType.PLATFORM.value,
-                NodeType.ENTRY_POINT.value,
-                NodeType.EXIT_POINT.value
+                NodeType.PLATFORM.value
             ]
         ]
         
