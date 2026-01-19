@@ -3,6 +3,9 @@ import json
 import base64
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
+# Vercel: Set Matplotlib config dir to /tmp (writable) before importing it
+import os
+os.environ['MPLCONFIGDIR'] = '/tmp/matplotlib'
 import matplotlib
 matplotlib.use('Agg')  # Use non-interactive backend
 import matplotlib.pyplot as plt
